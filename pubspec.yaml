@@ -72,6 +72,7 @@ dependencies:
   freezed: ^2.3.4
   freezed_annotation: ^2.2.0
   json_annotation: ^4.8.0
+  timeago: ^3.6.0
 
 dev_dependencies:
   flutter_test:
@@ -108,7 +109,13 @@ flutter:
     - assets/image/flag/
     - assets/image/splash/
     - assets/image/darkmode/
+    - assets/image/bank/
+    - assets/image/stock/
+    - assets/image/credit_card/
+    - assets/image/illustration/
+    - assets/image/notification/
     - assets/translations/
+    - assets/json/
     - assets/
 
   # To add assets to your application, add an assets section, like this:
