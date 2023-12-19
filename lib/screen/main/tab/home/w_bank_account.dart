@@ -21,18 +21,23 @@ class BankAccountWidget extends StatelessWidget {
           children: [
             (account.accountTypeName ?? "${account.bank.name} 통장")
                 .text
-                .white
+                .color(context.appColors.lessImportant)
                 .size(12)
                 .make(),
-            ("${account.balance}원").text.white.size(18).make(),
+            ("${NumberFormat("#,###").format(account.balance)}원")
+                .text
+                .white
+                .size(14)
+                .bold
+                .make(),
           ],
         ).pSymmetric(h: 20, v: 10),
         const EmptyExpanded(),
         RoundedContainer(
           backgroundColor: context.appColors.buttonBackground,
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          radius: 10,
-          child: "송금".text.white.bold.make(),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          radius: 5,
+          child: "송금".text.white.size(4).make(),
         ),
       ],
     );

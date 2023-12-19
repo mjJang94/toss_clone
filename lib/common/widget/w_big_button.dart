@@ -18,7 +18,7 @@ class BigButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             text.text.white
-                .size(20)
+                .size(16)
                 .bold
                 .make(),
             const Arrow(),
