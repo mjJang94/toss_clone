@@ -50,9 +50,12 @@ abstract class AbstractThemeColors {
 
   Color get buttonBackground => const Color.fromARGB(255, 48, 48, 48);
 
+  Color get benefitIconBg => const Color.fromARGB(90, 48, 48, 48);
+
   Color get roundedLayoutBackground => const Color.fromARGB(255, 24, 24, 24);
 
   Color get unreadColor => const Color.fromARGB(255, 48, 48, 48);
 
-  Color get lessImportantText => AppColors.grey;
+  Color get lessImportant => AppColors.grey;
+
 }
