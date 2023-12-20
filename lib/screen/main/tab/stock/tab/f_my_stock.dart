@@ -46,11 +46,11 @@ class MyStockFragment extends StatelessWidget {
       );
 
   Widget getMyStock(BuildContext context) => Container(
-      padding: const EdgeInsets.symmetric(vertical: 20),
+      padding: const EdgeInsets.all(20),
       color: context.appColors.roundedLayoutBackground,
       child: Column(
         children: [
-          height30,
+          height20,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
