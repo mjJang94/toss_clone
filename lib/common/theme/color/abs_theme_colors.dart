@@ -58,4 +58,8 @@ abstract class AbstractThemeColors {
 
   Color get lessImportant => AppColors.grey;
 
+  Color get customDivider => const Color.fromARGB(255, 228, 228, 228);
+
+  Color get plus => const Color.fromARGB(255, 230, 71, 13);
+
 }
