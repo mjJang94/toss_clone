@@ -3,6 +3,7 @@ import 'package:toss_clone/common/common.dart';
 import 'package:toss_clone/common/widget/w_arrow.dart';
 import 'package:toss_clone/common/widget/w_long_button.dart';
 import 'package:toss_clone/common/widget/w_rounded_container.dart';
+import 'package:toss_clone/screen/main/tab/stock/tab/w_interest_stock_list.dart';
 
 class MyStockFragment extends StatelessWidget {
   const MyStockFragment({super.key});
@@ -46,7 +47,6 @@ class MyStockFragment extends StatelessWidget {
       );
 
   Widget getMyStock(BuildContext context) => Container(
-      padding: const EdgeInsets.all(20),
       color: context.appColors.roundedLayoutBackground,
       child: Column(
         children: [
@@ -57,10 +57,10 @@ class MyStockFragment extends StatelessWidget {
               "관심주식".text.bold.make(),
               "편집하기".text.color(context.appColors.lessImportant).make(),
             ],
-          ),
+          ).pSymmetric(h: 20),
           height20,
           Tap(
-            onTap: (){
+            onTap: () {
               context.showSnackbar("기본");
             },
             child: Padding(
@@ -69,12 +69,16 @@ class MyStockFragment extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   "기본".text.make(),
-                  Arrow(
+                  const Arrow(
                     direction: AxisDirection.up,
                   )
                 ],
               ),
             ),
+          ).pSymmetric(h: 20),
+          Container(
+            color: context.appColors.appBarBackground,
+            child: const InterestStockList(),
           )
         ],
       ));

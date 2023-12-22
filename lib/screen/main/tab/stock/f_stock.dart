@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toss_clone/common/common.dart';
 import 'package:toss_clone/common/widget/w_image_button.dart';
+import 'package:toss_clone/screen/main/s_main.dart';
 
 import 'tab/f_my_stock.dart';
 import 'tab/f_today_discovery.dart';
@@ -21,10 +22,13 @@ class _StockFragmentState extends State<StockFragment>
   Widget build(BuildContext context) {
     return Container(
       color: context.appColors.appBarBackground,
+      padding: const EdgeInsets.only(bottom: MainScreenState.bottomNavigationHeight),
       child: CustomScrollView(
         slivers: [
           SliverAppBar(
+            automaticallyImplyLeading: false,
             backgroundColor: context.appColors.appBarBackground,
+            surfaceTintColor: context.appColors.appBarBackground,
             pinned: true,
             actions: [
               ImageButton(
@@ -53,9 +57,9 @@ class _StockFragmentState extends State<StockFragment>
                 title,
                 tabBar,
                 if(currentIndex == 0)
-                  MyStockFragment()
+                  const MyStockFragment()
                 else
-                  TodayDiscoveryFragment()
+                  const TodayDiscoveryFragment()
               ],
             ),
           ),
