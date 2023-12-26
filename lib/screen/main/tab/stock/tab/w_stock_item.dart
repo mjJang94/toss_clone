@@ -16,7 +16,7 @@ class StockItem extends StatelessWidget {
           width10,
           Image.asset(stock.stockImagePath, width: 35),
           width20,
-          (stock.stockName).text.size(14).bold.make(),
+          (stock.name).text.size(14).bold.make(),
           emptyExpanded,
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,

@@ -13,7 +13,7 @@ class SearchStockScreen extends StatefulWidget {
   State<SearchStockScreen> createState() => _SearchStockScreenState();
 }
 
-class _SearchStockScreenState extends State<SearchStockScreen> {
+class _SearchStockScreenState extends State<SearchStockScreen> with SearchStockDataProvider {
   final controller = TextEditingController();
   late final searchData = Get.find<SearchStockData>();
 
@@ -38,14 +38,15 @@ class _SearchStockScreenState extends State<SearchStockScreen> {
       appBar: SearchStockAppBar(
         controller: controller,
       ),
-      body: searchData.autoCompleteList.isEmpty
-          ? ListView(
-              children: [
-                SearchHistoryList(),
-                PopularSearchStockList(),
-              ],
-            )
-          : SearchAutoCompleteList(),
+      body: Obx(() => searchData.autoCompleteList.isEmpty
+            ? ListView(
+                children: const [
+                  SearchHistoryStockList(),
+                  PopularSearchStockList(),
+                ],
+              )
+            : SearchAutoCompleteList(controller),
+      ),
     );
   }
 }
