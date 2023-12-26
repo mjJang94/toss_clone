@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:toss_clone/screen/main/tab/stock/search/search_stock_data.dart';
 import 'package:toss_clone/screen/main/tab/stock/search/w_popular_search_stock_list.dart';
+import 'package:toss_clone/screen/main/tab/stock/search/w_search_auto_complete_list.dart';
 import 'package:toss_clone/screen/main/tab/stock/search/w_search_history_stock_list.dart';
 import 'package:toss_clone/screen/main/tab/stock/search/w_stock_search_app_bar.dart';
 
@@ -15,10 +15,14 @@ class SearchStockScreen extends StatefulWidget {
 
 class _SearchStockScreenState extends State<SearchStockScreen> {
   final controller = TextEditingController();
+  late final searchData = Get.find<SearchStockData>();
 
   @override
   void initState() {
     Get.put(SearchStockData());
+    controller.addListener(() {
+      searchData.search(controller.text);
+    });
     super.initState();
   }
 
@@ -34,10 +38,14 @@ class _SearchStockScreenState extends State<SearchStockScreen> {
       appBar: SearchStockAppBar(
         controller: controller,
       ),
-      body: ListView(children: [
-        SearchHistoryList(),
-        PopularSearchStockList(),
-      ],),
+      body: searchData.autoCompleteList.isEmpty
+          ? ListView(
+              children: [
+                SearchHistoryList(),
+                PopularSearchStockList(),
+              ],
+            )
+          : SearchAutoCompleteList(),
     );
   }
 }
