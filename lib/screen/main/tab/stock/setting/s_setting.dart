@@ -5,6 +5,7 @@ import 'package:toss_clone/common/dart/extension/datetime_extension.dart';
 import 'package:toss_clone/common/data/preference/prefs.dart';
 import 'package:toss_clone/common/widget/w_big_button.dart';
 import 'package:toss_clone/screen/main/tab/stock/setting/d_number.dart';
+import 'package:toss_clone/screen/opensource/s_opensource.dart';
 
 import 'w_switch_menu.dart';
 
@@ -55,6 +56,9 @@ class _SettingScreenState extends State<SettingScreen> {
               }
             }),
           ),
+          BigButton('오픈소스 화면', onTap: () async {
+            Nav.push(const OpensourceScreen());
+          }),
         ],
       ),
     );
